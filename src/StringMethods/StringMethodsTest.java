@@ -15,7 +15,7 @@ class StringMethodsTest {
 	
 	@Test
 	void testFormatSpaces() {
-		assertEquals("This String should not chage", StringMethods.formatSpaces("This String should not chage"));
+		assertEquals("This String should not change", StringMethods.formatSpaces("This String should not change"));
 		assertEquals("This_String_should_have_its_spaces_filled_with_underscores", StringMethods.formatSpaces("This String should have its spaces filled with underscores"));
 		assertEquals("x_x_x_x_x_x_x_underscores_x_x_x_x_x_x", StringMethods.formatSpaces("x x x x x x x underscores x x x x x x"));
 	}
@@ -80,7 +80,7 @@ class StringMethodsTest {
 		assertTrue(StringMethods.palindrome("ABBA"));
 		assertTrue(StringMethods.palindrome("racecar"));
 		assertTrue(StringMethods.palindrome("Was it a cat I saw?"));
-		assertTrue(StringMethods.palindrome("A man, a plan, a cat, a ham, a yak, a yam, a hat, a canal – Panama"));
+		assertTrue(StringMethods.palindrome("A man, a plan, a cat, a ham, a yak, a yam, a hat, a canal, a Panama"));
 		assertTrue(StringMethods.palindrome("Doc, Note: I Dissent. A Fast Never Prevents A Fatness. I Diet On Cod."));
 		assertFalse(StringMethods.palindrome("abcdefghijklmnopqrstuvwxyz"));
 		assertFalse(StringMethods.palindrome("This is not a palendrome"));

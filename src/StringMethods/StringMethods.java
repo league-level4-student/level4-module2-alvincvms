@@ -1,5 +1,6 @@
 package StringMethods;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Base64;
 
@@ -32,13 +33,23 @@ public class StringMethods {
 
 	// Given Strings s1 and s2, return the longer String
 	public static String longerString(String s1, String s2) {
-		return null;
+		if(s1.length() > s2.length()) {
+			return s1;
+		}
+		if(s2.length() > s1.length()){
+			return s2;
+		}
+		return "equal";
 	}
 
 	
 	// if String s contains the word "underscores", change all of the spaces to underscores
 	public static String formatSpaces(String s) {
-		return null;
+		String a = s;
+		if(a.contains("underscores")) {
+			a = a.replace(' ', '_');
+		}
+		return a;
 	}
 
 	
@@ -46,18 +57,45 @@ public class StringMethods {
 	// You cannot assume there are no extra spaces around the name, but you can
 	// assume there is only one space between the first and last name
 	public static String lineLeader(String s1, String s2, String s3) {
-		return null;
+		s1 = s1.trim();
+		s2 = s2.trim();
+		s3 = s3.trim();
+		if(lastName(s1).compareTo(lastName(s2)) < 0 && lastName(s1).compareTo(lastName(s3)) < 0) {
+			return s1;
+		}
+		if(lastName(s2).compareTo(lastName(s1)) < 0 && lastName(s2).compareTo(lastName(s3)) < 0) {
+			return s2;
+		}
+		if(lastName(s3).compareTo(lastName(s1)) < 0 && lastName(s3).compareTo(lastName(s2)) < 0) {
+			return s3;
+		}
+		return "equal";
+		
 	}
-	
+	static String lastName(String s) {
+		String a = s;
+		a = a.trim();
+		String[] b = a.split(" ");
+		a = b[1];
+		a.trim();
+		return a;
+	}
 	
 	// Return the sum of all numerical digits in the String
 	public static int numeralSum(String s) {
-		return 0;
+		int a = 0;
+		for(int i = 0; i < s.length(); i++) {
+			if(Character.isDigit(s.toCharArray()[i])) {
+				a += Integer.parseInt(Character.toString(s.toCharArray()[i]));
+			}
+		}
+		return a;
 	}
 	
 	
 	// Return the number of times String substring appears in String s
 	public static int substringCount(String s, String substring) {
+		unfinished
 		return 0;
 	}
 
