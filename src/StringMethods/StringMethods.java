@@ -95,33 +95,89 @@ public class StringMethods {
 	
 	// Return the number of times String substring appears in String s
 	public static int substringCount(String s, String substring) {
-		unfinished
-		return 0;
+		int count = 0;
+		for(int i = 0; i < s.length(); i++) {
+			for(int j = 0; j < substring.length(); j++) {
+				if(substring.charAt(j) != s.charAt(i)) {
+					break;
+				}
+				if(j == substring.length() - 1) {
+					count++;
+					break;
+				}
+				i++;
+			}
+		}
+		return count;
 	}
 
-	// Call Utitilities.encrypt to encrypt String s
+	// Call Utilities.encrypt to encrypt String s
 	public static String encrypt(String s, char key) {
-		return null;
+		return Utilities.encrypt(s.getBytes(), (byte) key);
 	}
 
 	// Call Utilities.decrypt to decrypt the cyphertext
 	public static String decrypt(String s, char key) {
-		return null;
+		return Utilities.decrypt(s, (byte) key);
 	}
 
 
 	// Return the number of words in String s that end with String substring
 	// You can assume there are no punctuation marks between words
 	public static int wordsEndsWithSubstring(String s, String substring) {
-		return 0;
+		int count = 0;
+		String[] a = s.trim().split(" ");
+		for(String b : a) {
+			if(b.length() >= substring.length()) {
+				for(int i = substring.length() - 1; i >= 0; i--) {
+					if(b.charAt(b.length() - substring.length() + i) != substring.charAt(i)) {
+						break;
+					}
+					if(i == 0) {
+						count++;
+					}
+				}
+			}
+		}
+		return count;
 	}
 	
-
 	// Given String s, return the number of characters between the first occurrence
 	// of String substring and the final occurrence
 	// You can assume that substring will appear at least twice
 	public static int distance(String s, String substring) {
-		return 0;
+		int I1 = -1, I2 = -1;
+		for(int i = 0; i < s.length(); i++) {
+			for(int j = 0; j < substring.length(); j++) {
+				if(s.charAt(i) != substring.charAt(j)) {
+					break;
+				}
+				if(j == substring.length() - 1) {
+					I1 = i;
+					break;
+				}
+				i++;
+			}
+			if(I1 != -1) {
+				break;
+			}
+		}
+		for(int i = s.length() - 1; i >= 0; i--) {
+			for(int j = substring.length() - 1; j >= 0; j--) {
+				if(s.charAt(i) != substring.charAt(j)) {
+					break;
+				}
+				if(j == 0) {
+					I2 = i;
+					break;
+				}
+				i--;
+			}
+			if(I2 != -1) {
+				break;
+			}
+		}
+		return (I2 - I1 - 1);
 	}
 
 
@@ -129,6 +185,22 @@ public class StringMethods {
 	// palindromes are words or phrases are read the same forward as backward.
 	// HINT: ignore/remove all punctuation and spaces in the String
 	public static boolean palindrome(String s) {
+		String purified = "";
+		for(int i = 0; i < s.length(); i++) {
+			if(!Character.isLetter(s.charAt(i))){
+				s = s.replace(s.charAt(i), ' ');
+			}
+		}
+		for(String a : s.split(" ")) {
+			purified += a.toLowerCase();
+		}
+		for(int i = 0; i < purified.length()/2; i++) {
+			System.out.println(purified.charAt(i) + ", " + purified.charAt(purified.length() - i - 1));
+			unfinished
+			if(purified.charAt(i) != purified.charAt(purified.length() - i - 1)) {
+				return false;
+			}
+		}
 		return true;
 	}
 	
