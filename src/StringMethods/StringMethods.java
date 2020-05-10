@@ -195,8 +195,6 @@ public class StringMethods {
 			purified += a.toLowerCase();
 		}
 		for(int i = 0; i < purified.length()/2; i++) {
-			System.out.println(purified);
-			System.out.println(purified.charAt(i) + ", " + purified.charAt(purified.length() - i - 1));
 			if(purified.charAt(i) != purified.charAt(purified.length() - i - 1)) {
 				return false;
 			}
